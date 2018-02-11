@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <title>망고의 T-Map</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!-- Import jquery.min.js -->
+        <script src="js/jquery/dist/jquery.min.js"></script>
+        <!-- Import T-map -->
+        <script src="https://api2.sktelecom.com/tmap/js?version=1&format=javascript&appKey=cadda216-ac54-435a-a8ea-a32ba3bb3356"></script>
+        
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        
+        <!-- Import -->
+        <link type="text/css" rel="stylesheet" href="css/t-map.css"  media="screen,projection"/>
+        <link rel="stylesheet" href="css/materialize.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+        <script src="js/geolocation.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">망고의 T-Map</a>
+                <ul class="left hide-on-med-and-down">
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+        
+        <section>
+            <article class="row">
+                <div class="main center-align">
+                    <h2>
+                        망고의 T-Map
+                    </h2>
+                    <hr />
+                </div>
+                <!-- T-Map 지도 화면 -->
+                    <div id="map_div" class="col s5 m3"></div>
+
+                <form class="col s5 m3">
+                    <div>
+                        <label for="start" name="start">출발지</label>
+                        <input type="text" id="start" />
+                        <input type="button" value="등록" onclick="search('#start')">
+                    </div>
+
+                    <div>
+                        <label for="end" name="end">도착지</label>
+                        <input type="text" id="end" />
+                        <input type="button" value="등록" onclick="search('#end')">
+                    </div>
+
+                    <div class="submit">
+                        <input type="button" value="경로 검색" onclick="go()">
+                    </div>
+
+                    <div class="result">
+                        <p id="result" class="center-align result"></p>
+                        <p id="result2" class="center-align"></p>
+                    </div>
+                </form>
+
+                
+            </article>
+        </section>
+        </div>
+
+        <!-- Import materialize.min.js -->
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                initTmap();
+            });
+        </script>
+    </body>
+</html>
