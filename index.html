@@ -20,59 +20,58 @@
         <script src="js/geolocation.js"></script>
     </head>
     <body>
-        <nav>
+        
+        <nav style="background-image: url('img/nav_img.jpg');">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center">망고의 T-Map</a>
-                <ul class="left hide-on-med-and-down">
-                </ul>
             </div>
         </nav>
-        <div class="container">
+        <div class="row">
+        <!-- T-Map 지도 화면 -->
+            <div id="map_div"></div>
         
-        <section>
-            <article class="row">
-                <div class="main center-align">
-                    <h2>
-                        망고의 T-Map
-                    </h2>
-                    <hr />
-                </div>
-                <!-- T-Map 지도 화면 -->
-                    <div id="map_div" class="col s5 m3"></div>
-
-                <form class="col s5 m3">
-                    <div>
-                        <label for="start" name="start">출발지</label>
+            <form class="offset-s6 col s3" style="margin-top: 6%;">
+                <div class="row">
+                    <div class="input-field col s12">
                         <input type="text" id="start" />
-                        <input type="button" value="등록" onclick="search('#start')">
+                        <input class="waves-effect waves-light btn" type="button" style="background-color: rgba(250, 170, 50, 0.5);"
+                         value="출발지 등록" onclick="search('#start')">
                     </div>
-
-                    <div>
-                        <label for="end" name="end">도착지</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
                         <input type="text" id="end" />
-                        <input type="button" value="등록" onclick="search('#end')">
+                        <input class="waves-effect waves-light btn" style="background-color: rgba(250, 170, 50, 0.5);"
+                         type="button" value="도착지 등록" onclick="search('#end')">
                     </div>
-
-                    <div class="submit">
-                        <input type="button" value="경로 검색" onclick="go()">
+                </div>
+                <div class="row">
+                    <div class="submit col s12">
+                        <button class="waves-effect waves-light btn" style="background-color: red;"
+                        type="button" onclick="go()">
+                                <i class="material-icons right">send</i>경로 탐색
+                        </button>
                     </div>
-
-                    <div class="result">
-                        <p id="result" class="center-align result"></p>
-                        <p id="result2" class="center-align"></p>
-                    </div>
-                </form>
-
-                
-            </article>
-        </section>
+                </div>
+            </form>
+            <div class="result col s3">
+                <p id="result" class="center-align"></p>
+                <p id="result1" class="center-align"></p>
+                <p id="result2" class="center-align"></p>
+                <p id="result3" class="center-align"></p>
+            </div>
         </div>
+        
+
+        
 
         <!-- Import materialize.min.js -->
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script>
             $(document).ready(() => {
                 initTmap();
+                $("#map_div").attr("style", "height:100%; width: 50%;");
+                Materialize.updateTextFields();
             });
         </script>
     </body>

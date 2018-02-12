@@ -31,7 +31,7 @@ function initTmap(){
     map = new Tmap.Map({
         div:'map_div',
         width : "40rem",
-        height : "30rem",
+        height : "40rem",
     });
 
     map.events.register("click", map, onClick);
@@ -78,8 +78,7 @@ function onClick(e){
     if(input_s == 0) {
         if(input_e == 0) {
             removeMarker("e");
-            $("#result").text("");
-            $("#result2").text("");
+            resetResult();
         }
         removeMarker("s");
         setLocation("#start", x, y, lonlat);
@@ -91,6 +90,14 @@ function onClick(e){
         removeMarker("e");
         reset();
     }
+}
+
+function resetResult() {
+    $("#result").text("");
+    $("#result1").text("");
+    $("#result2").text("");
+    $("#result3").text("");
+    $(".preloader-wrapper").attr("class", "active");
 }
 
 function setLocation(value, x, y, lonlat) {
@@ -164,8 +171,7 @@ function reset () {
     removeMarker("e");
     endInputS();
     endInputE();
-    $("#result").text("");
-    $("#result2").text("");
+    resetResult();
     map.removeLayer(routeLayer);
 }
 
@@ -220,8 +226,10 @@ function distance() {
                 
                 routeLayer.addFeatures(vector_format);
 
-                $("#result").text(time + " " + total.totalDistance/1000+ "km ");
-                $("#result2").text("통행료: " + total.totalFare + " 택시비: " + total.taxiFare);
+                $("#result").text("소요 시간: " + time);
+                $("#result1").text("거리: " + total.totalDistance/1000+ "km ");
+                $("#result2").text("통행료: " + total.totalFare);
+                $("#result3").text("택시비: " + total.taxiFare);
             },
             error:function(request,status,error){
                 alert("출발지 혹은 도착지를 잘못 지정하였습니다.");
