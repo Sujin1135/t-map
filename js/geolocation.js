@@ -43,16 +43,16 @@ function initTmap(){
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다. 
     // 현재 위치 정보를 얻어오는 메서드이다. 사용자가 허용을 할 경우 실행된다.
         // GeoLocation을 이용해서 접속 위치를 얻어옵니다.
-        if (geolocation)    geoLocation();
+        if (geolocation)    geoLocation("s");
 }
 // 나의 위치정보를 나타낼 메서드
-function geoLocation() {
+function geoLocation(location) {
     navigator.geolocation.getCurrentPosition(function(position){
         // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
         lat = position.coords.latitude; // 위도
         lon = position.coords.longitude; // 경도
 
-        moveCoordinate("s", lon, lat);
+        moveCoordinate(location, lon, lat);
     });
 }
 
@@ -92,12 +92,11 @@ function onClick(e){
     }
 }
 
-function resetResult() {
+function resetResult() { // 출력 정보 리셋
     $("#result").text("");
     $("#result1").text("");
     $("#result2").text("");
     $("#result3").text("");
-    $(".preloader-wrapper").attr("class", "active");
 }
 
 function setLocation(value, x, y, lonlat) {

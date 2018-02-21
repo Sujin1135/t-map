@@ -34,17 +34,29 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" id="start" />
-                        <input class="waves-effect waves-light btn" type="button" style="background-color: rgba(250, 170, 50, 0.5);"
-                         value="출발지 등록" onclick="search('#start')">
+                        <div class="row">
+                            <input class="waves-effect waves-light btn col s5" type="button" style="background-color: rgba(250, 170, 50, 0.5);"
+                            value="출발지 등록" onclick="search('#start')">
+                            <button class="waves-effect waves-light btn offset-s1 col s5" type="button" onclick="geoLocation('s')">
+                                <i class="material-icons left">center_focus_weak</i>  내 위치
+                            </button>
+                        </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" id="end" />
-                        <input class="waves-effect waves-light btn" style="background-color: rgba(250, 170, 50, 0.5);"
-                         type="button" value="도착지 등록" onclick="search('#end')">
+                        <div class="row">
+                            <input class="waves-effect waves-light btn col s5" style="background-color: rgba(250, 170, 50, 0.5);"
+                            type="button" value="도착지 등록" onclick="search('#end')">
+                            <button class="waves-effect waves-light btn offset-s1 col s5" type="button" onclick="geoLocation('e')">
+                                <i class="material-icons left">center_focus_weak</i>  내 위치
+                            </button>
+                        </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="submit col s12">
                         <button class="waves-effect waves-light btn" style="background-color: red;"
